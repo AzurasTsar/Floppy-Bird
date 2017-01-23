@@ -99,7 +99,7 @@ public class FloppyBird implements ActionListener, MouseListener, KeyListener {
 	public void paintColumn(Graphics g, Rectangle column){
 		g.setColor(Color.cyan);
 		g.fillRect(column.x, column.y, column.width-20, column.height-10);
-		g.setColor(Color.white);
+		g.setColor(Color.cyan.darker());
 		g.fillRect(column.x+column.width-20, column.y, 20, column.height-10);
 		g.setColor(Color.cyan.darker());
 		g.drawRect(column.x, column.y, column.width, column.height-10);
@@ -249,7 +249,6 @@ public class FloppyBird implements ActionListener, MouseListener, KeyListener {
 			{
 				bird.y = HEIGHT - 150 - bird.height;
 				gameOver = true;
-		
 			}
 	
 		}
@@ -282,7 +281,7 @@ public class FloppyBird implements ActionListener, MouseListener, KeyListener {
 		g.fillRect(0, HEIGHT-150, WIDTH, 30);
 		
 		//bird
-		g.setColor(Color.white);
+		g.setColor(Color.pink);
 		g.fillOval(bird.x, bird.y, bird.width, bird.height);
 		
 		//iterate over Rectangle ArrayList
@@ -293,11 +292,12 @@ public class FloppyBird implements ActionListener, MouseListener, KeyListener {
 		
 		//text and score
 		g.setColor(Color.orange);
-		g.setFont(new Font("Brush Script MT",1,220));
+		g.setFont(new Font("Brush Script MT",1,300));
 		if(!started)
 		{
-			g.drawString("CLICK TO START", 30, HEIGHT/2-100);
+			g.drawString("Floppy Bird", WIDTH/5-50, HEIGHT/2-150);
 		}
+		g.setFont(new Font("Brush Script MT",1,220));
 		if(started&&!gameOver)
 		{
 			g.drawString(Integer.toString(score), WIDTH/2-50, 200);
